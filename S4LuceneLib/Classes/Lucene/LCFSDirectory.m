@@ -36,32 +36,32 @@
 			 
 - (id)initWithPath: (NSString *)p create: (BOOL)b
 {
-	BOOL isDir;
-
 	self = [self init];
-	ASSIGN(manager, [[NSFileManager alloc] init]);
-	ASSIGNCOPY(path, p);
-	if (b) 
-    {
-		if ([self create] == NO)
-		{	
-			NSLog(@"Unable to create directory");
+	if (nil != self)
+	{
+		manager = [[NSFileManager alloc] init];
+		path = [p copy];
+		if (b) 
+		{
+			if ([self create] == NO)
+			{	
+				NSLog(@"Unable to create directory");
+				DESTROY(manager);
+				DESTROY(path);
+				[self release];
+				return nil;
+			}
+		}
+
+		if ([S4FileUtilities isDirectoryAtPath: path] == NO)
+		{
+			NSLog(@"Not a directory");
 			DESTROY(manager);
 			DESTROY(path);
+			[self release];
 			return nil;
 		}
-    }
-
-	if ([manager fileExistsAtPath: path isDirectory: &isDir] && isDir)
-    {
-    }
-	else
-    {
-		NSLog(@"Not a directory");
-		DESTROY(manager);
-		DESTROY(path);
-		return nil;
-    }
+	}
 	return self;
 }
 

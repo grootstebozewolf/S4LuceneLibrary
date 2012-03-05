@@ -73,8 +73,8 @@
 			[_query addQuery: [handler query] occur: occur];
 			[queryString setString: @""];
 			currentType = ReadyType;
-                        DESTROY(handler);
-                        DESTROY(parser);
+			DESTROY(handler);
+			DESTROY(parser);
         }
 		else
         {

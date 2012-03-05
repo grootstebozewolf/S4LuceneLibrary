@@ -85,15 +85,24 @@
  */
 - (NSDate *)calendarDate;
 {
-	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+	NSLocale				*enUSPOSIXLocale;
+	NSDateFormatter			*dateFormatter;
+	NSDate					*date = nil;
+
+	enUSPOSIXLocale = [[NSLocale alloc] initWithLocaleIdentifier: @"en_US_POSIX"];
+	dateFormatter = [[NSDateFormatter alloc] init];
 
 	[dateFormatter setTimeStyle: NSDateFormatterNoStyle];
 	[dateFormatter setDateStyle: NSDateFormatterMediumStyle];
-	NSLocale *usLocale = [[NSLocale alloc] initWithLocaleIdentifier: @"en_US"];
-	[dateFormatter setLocale: usLocale];
+	[dateFormatter setLocale: enUSPOSIXLocale];
 
 	/* make sure the string is in GMT format */
-	return ([dateFormatter dateFromString: self]);
+	[dateFormatter setTimeZone: [NSTimeZone timeZoneForSecondsFromGMT: 0]];
+	[dateFormatter setLenient: NO];
+	date = [dateFormatter dateFromString: self];
+	[dateFormatter release];
+	[enUSPOSIXLocale release];
+	return (date);
 }
 
 @end
