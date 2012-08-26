@@ -86,7 +86,8 @@ CodeType codeType(unichar *ch)
   NSString *out;
 
   start = 0;
-  startType = codeType(_uchar + 0);
+  end = 0;
+  startType = codeType(_uchar + start);
 
   [_handler beginParsing];
 

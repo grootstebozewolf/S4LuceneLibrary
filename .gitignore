@@ -10,6 +10,7 @@ iPhoneLuceneSearch/build
 *.mode1v3
 *.mode2v3
 *.perspectivev3
+DerivedData
 target/*
 .DS_Store
 profile

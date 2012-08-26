@@ -123,7 +123,7 @@ last character corresponding to this token in the source text. */
 - (NSString *) description
 {
 #if 1
-	return [NSString stringWithFormat: @"LCToken<0x%x> %@", self, termText];
+	return [NSString stringWithFormat: @"LCToken<0x%@> %@", self, termText];
 #else
     StringBuffer sb = new StringBuffer();
     sb.append("(" + termText + "," + startOffset + "," + endOffset);

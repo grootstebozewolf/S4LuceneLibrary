@@ -103,7 +103,7 @@
 
 - (NSString *) description
 {
-	return [NSString stringWithFormat: @"weight(0x%x)", self];
+	return [NSString stringWithFormat: @"weight(0x%@)", self];
 }
 
 - (LCQuery *) query { return query; }
@@ -137,7 +137,7 @@
 	LCExplanation *result = [[LCExplanation alloc] init];
 	[result setRepresentation: [NSString stringWithFormat: @"weight(%@ in %d), product of:", query, doc]];
 	
-	LCExplanation *idfExpl = AUTORELEASE(([[LCExplanation alloc] initWithValue: idf representation: [NSString stringWithFormat: @"idf(docFreq=%d)", [reader documentFrequency: [query term]]]]));
+	LCExplanation *idfExpl = AUTORELEASE(([[LCExplanation alloc] initWithValue: idf representation: [NSString stringWithFormat: @"idf(docFreq=%ld)", [reader documentFrequency: [query term]]]]));
 	// explain query weight
 	LCExplanation *queryExpl = AUTORELEASE([[LCExplanation alloc] init]);
 	[queryExpl setRepresentation: [NSString stringWithFormat: @"queryWeight(%@), product of:", query]];

@@ -41,7 +41,7 @@
 		if (format < SEGMENT_FORMAT)
         {
 			[NSException raise: @"LCUnknownSegmentFormatVersion"
-						format: @"Unknown format version %d", format];
+						format: @"Unknown format version %ld", format];
 		}
 		version = [input readLong]; // read version
 		counter = [input readInt]; // read counter
