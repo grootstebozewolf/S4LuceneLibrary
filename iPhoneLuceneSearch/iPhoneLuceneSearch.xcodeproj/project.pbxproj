@@ -21,6 +21,7 @@
 		0A10ECCC11FC394B00F094F9 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A10ECCB11FC394B00F094F9 /* libz.dylib */; };
 		0A2137AD13AD4C7F00E14101 /* libS4iOSLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A2137AC13AD4C7F00E14101 /* libS4iOSLib.a */; };
 		0A2137E513AD4D4400E14101 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A2137E413AD4D4400E14101 /* CFNetwork.framework */; };
+		0A43748915E9BC8300692C39 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A43748815E9BC8300692C39 /* QuartzCore.framework */; };
 		0AD111361485B53F0058EF06 /* ico_arrowleft.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AD111321485B53F0058EF06 /* ico_arrowleft.png */; };
 		0AD111371485B53F0058EF06 /* ico_arrowright.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AD111331485B53F0058EF06 /* ico_arrowright.png */; };
 		0AD111381485B53F0058EF06 /* ico_refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AD111341485B53F0058EF06 /* ico_refresh.png */; };
@@ -293,6 +294,10 @@
 		0A2FCB6F1504C38300D790B3 /* yajl_encode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = yajl_encode.h; sourceTree = "<group>"; };
 		0A2FCB701504C38300D790B3 /* yajl_lex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = yajl_lex.h; sourceTree = "<group>"; };
 		0A2FCB711504C38300D790B3 /* yajl_parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = yajl_parser.h; sourceTree = "<group>"; };
+		0A43747415E9BBA800692C39 /* ARCHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCHelper.h; sourceTree = "<group>"; };
+		0A43747715E9BBA800692C39 /* NSObject+AutoCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+AutoCoding.h"; sourceTree = "<group>"; };
+		0A43747A15E9BBA800692C39 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		0A43748815E9BC8300692C39 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		0AD111321485B53F0058EF06 /* ico_arrowleft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ico_arrowleft.png; path = ../../S4iOSLibraries/S4iOSLib/dist/Resources/ico_arrowleft.png; sourceTree = "<group>"; };
 		0AD111331485B53F0058EF06 /* ico_arrowright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ico_arrowright.png; path = ../../S4iOSLibraries/S4iOSLib/dist/Resources/ico_arrowright.png; sourceTree = "<group>"; };
 		0AD111341485B53F0058EF06 /* ico_refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ico_refresh.png; path = ../../S4iOSLibraries/S4iOSLib/dist/Resources/ico_refresh.png; sourceTree = "<group>"; };
@@ -314,6 +319,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A43748915E9BC8300692C39 /* QuartzCore.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
@@ -594,9 +600,12 @@
 		0A2FCB441504C38300D790B3 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				0A43747315E9BBA800692C39 /* ARC_Helper */,
+				0A43747615E9BBA800692C39 /* AutoCoding */,
 				0A2FCB451504C38300D790B3 /* CocoaAsyncSocket */,
 				0A2FCB4A1504C38300D790B3 /* CocoaHttpServer */,
 				0A2FCB5B1504C38300D790B3 /* CocoaLumberjack */,
+				0A43747915E9BBA800692C39 /* iCarousel */,
 				0A2FCB621504C38300D790B3 /* JSONKit */,
 				0A2FCB651504C38300D790B3 /* ObjC-Property-Factory */,
 				0A2FCB681504C38300D790B3 /* SFHFKeychainUtils.h */,
@@ -679,6 +688,30 @@
 			path = yajl;
 			sourceTree = "<group>";
 		};
+		0A43747315E9BBA800692C39 /* ARC_Helper */ = {
+			isa = PBXGroup;
+			children = (
+				0A43747415E9BBA800692C39 /* ARCHelper.h */,
+			);
+			path = ARC_Helper;
+			sourceTree = "<group>";
+		};
+		0A43747615E9BBA800692C39 /* AutoCoding */ = {
+			isa = PBXGroup;
+			children = (
+				0A43747715E9BBA800692C39 /* NSObject+AutoCoding.h */,
+			);
+			path = AutoCoding;
+			sourceTree = "<group>";
+		};
+		0A43747915E9BBA800692C39 /* iCarousel */ = {
+			isa = PBXGroup;
+			children = (
+				0A43747A15E9BBA800692C39 /* iCarousel.h */,
+			);
+			path = iCarousel;
+			sourceTree = "<group>";
+		};
 		0A87AA12123868EB0094AAED /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
@@ -751,6 +784,7 @@
 				0A10ECBF11FC394B00F094F9 /* MediaPlayer.framework */,
 				0A10ECC111FC394B00F094F9 /* MessageUI.framework */,
 				0A10ECC311FC394B00F094F9 /* OpenGLES.framework */,
+				0A43748815E9BC8300692C39 /* QuartzCore.framework */,
 				0A10ECC511FC394B00F094F9 /* Security.framework */,
 				0A10ECC711FC394B00F094F9 /* SystemConfiguration.framework */,
 				0A10ECC911FC394B00F094F9 /* libxml2.dylib */,
@@ -795,7 +829,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "SeaStones Software";
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "iPhoneLuceneSearch" */;
