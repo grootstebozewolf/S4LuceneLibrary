@@ -249,7 +249,8 @@ static int MAX_BBUF = INT_MAX;
     LCMMapIndexInput *clone = [super copyWithZone:  NSDefaultMallocZone()];
 
     /* [buffer copyWithZone: NSDefaultMallocZone()] */
-    clone->buffer = (NSMutableData *)NSCopyObject(buffer, 0, NSDefaultMallocZone()); 
+//    clone->buffer = (NSMutableData *)NSCopyObject(buffer, 0, NSDefaultMallocZone());
+	clone->buffer = [buffer mutableCopy];
     // NOTE: clone->file must be closed only when its retain count equals 1;
     // the fact is we cannot copy NSFileHandle object, that's why we retain it.
     [clone->file retain]; 
@@ -441,12 +442,13 @@ static int MAX_BBUF = INT_MAX;
     // NOTE: With C99 enabled, we could write 
     // for (int i = 0; i < [buffers count]; i++)
     int i;
-    for (i = 0; i < n; i++) {
+    for (i = 0; i < n; i++)
+	{
         /* Objects will be added at index i */
-        NSMutableData *bufferToCopy = [buffers objectAtIndex: i];
+        NSMutableData			*bufferToCopy;
         
-        bufferToCopy = (NSMutableData *)NSCopyObject((NSObject *)bufferToCopy,
-0, NSDefaultMallocZone());
+//      bufferToCopy = (NSMutableData *)NSCopyObject((NSObject *)bufferToCopy, 0, NSDefaultMallocZone());
+		bufferToCopy = [(NSMutableData *)[buffers objectAtIndex: i] mutableCopy];
         [(clone->buffers) addObject: bufferToCopy];
     }
     
